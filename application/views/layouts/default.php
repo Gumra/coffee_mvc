@@ -23,7 +23,9 @@
 
     </head>
     <body class="sb-nav-fixed">
-        <?php if ($this->route['action'] != 'login' and $this->route['action'] != 'register'): ?>
+        <?php if ($this->route['action'] != 'login' and
+            $this->route['action'] != 'register' and $this->route['action'] != 'forgot'): ?>
+
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="default.php">Coffee House</a>

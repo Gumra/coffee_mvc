@@ -1,6 +1,7 @@
 <?php
     namespace application\models;
     use application\core\Model;
+    use application\services\Mail;
     use application\services\Validation;
 
 
@@ -94,6 +95,38 @@
             $lastId=$this->db->lastInsertId();
 
             move_uploaded_file($_FILES['img']['tmp_name'],"application/public/materials/profilesImage/".$lastId.".jpg");
+
+            return true;
+        }
+
+        public function validateEmailForgot($post) {
+            if (!$this->validate->validateInput(['email'],$post)) {
+                $this->error=$this->validate->errorValidate;
+                return false;
+            }
+            $params=[
+                'email'=>$post['email'],
+            ];
+            $count=intval($this->db->column('SELECT COUNT(*) FROM profiles WHERE email =:email',$params));
+
+            if ($count!=1) {
+                $this->error='Такого пользователя нет в базе';
+                return false;
+            }
+
+            $profile=$this->db->row("SELECT * FROM profiles WHERE email= :email",$params);
+
+            $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+
+            $password=substr(str_shuffle($permitted_chars), 0, 10);
+
+            Mail::sendEmail($post['email'],$profile[0]['firstName'],$password);
+
+            $params['password']=password_hash($password,PASSWORD_BCRYPT);
+
+            $query="UPDATE profiles SET password= :password WHERE email= :email";
+
+            $this->db->query($query,$params);
 
             return true;
         }

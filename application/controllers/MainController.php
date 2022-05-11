@@ -41,10 +41,20 @@ class MainController extends Controller {
             if (!$this->model->validateRegister($_POST)) {
                 $this->view->message('error',$this->model->error);
             }
-            //$this->view->message('success','Успешная регистрация');
+
             $this->view->location('login');
         }
         $this->view->render('Регистрация');
+    }
+
+    public function forgotAction() {
+        if (!empty($_POST)) {
+            if (!$this->model->validateEmailForgot($_POST)) {
+                $this->view->message('error',$this->model->error);
+            }
+            $this->view->location('login');
+        }
+        $this->view->render('Восстановление пароля');
     }
 
 }
