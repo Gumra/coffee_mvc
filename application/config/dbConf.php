@@ -1,7 +1,7 @@
 <?php
     return array(
         "host"=>"localhost",
-        "dbname"=>"coffee",
+        "dbname"=>"coffee_mvc",
         "user"=>"root",
         "password"=>"",
     );

@@ -35,11 +35,11 @@
                 return false;
             }
 
-            if ($profiles[0]['admin']) {
-                $_SESSION['admin']=$profiles;
+            if ($profiles[0]['status']==0) {
+                $_SESSION['user']=$profiles;
             }
             else {
-                $_SESSION['user']=$profiles;
+                $_SESSION['admin']=$profiles;
             }
             return true;
         }

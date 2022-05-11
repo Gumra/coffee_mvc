@@ -1,3 +1,6 @@
+<?php
+    $currentUser=array_key_first($_SESSION);
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -86,8 +89,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid mt-2">
-                        <?php $currentUser=array_key_first($_SESSION);
-                        if ($currentUser):?>
+                        <?php if ($currentUser):?>
                         <div class="d-flex flex-row justify-content-between">
                             <div class="d-flex align-items-center">
                                 <img src="/application/public/materials/profilesImage/<?=$_SESSION[$currentUser][0]['id'].'.jpg'?>" width="50" height="50" style="margin-right: 10px">
