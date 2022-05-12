@@ -25,6 +25,10 @@
             'controller'=>'main',
             'action'=>'forgot'
         ],
+        'review'=>[
+            'controller'=>'main',
+            'action'=>'review'
+        ],
         //AdminController
         'admin/'
         /*'main/index/{page:\d+}' => [

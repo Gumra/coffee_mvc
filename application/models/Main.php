@@ -130,4 +130,36 @@
 
             return true;
         }
+
+        public function createReview($post) {
+            if (!isset($post['text'])) {
+                $this->error='Пустой отзыв';
+                return false;
+            }
+            $user=array_key_first($_SESSION);
+
+            if (!isset($_SESSION[$user])) {
+                $user='Неизвестный';
+            }
+            else {
+                $user=$_SESSION[$user][0]['firstName'];
+            }
+
+            $sql="INSERT INTO review (firstName , text) VALUES (:firstName, :text)";
+
+            $params=[
+                'firstName'=>$user,
+                'text'=>$post['text'],
+            ];
+
+            $this->db->query($sql,$params);
+
+            return true;
+        }
+
+        public function getReviews() {
+            $sql="SELECT * FROM review";
+
+            return $this->db->row($sql);
+        }
     }

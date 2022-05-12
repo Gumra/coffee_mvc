@@ -57,4 +57,21 @@ class MainController extends Controller {
         $this->view->render('Восстановление пароля');
     }
 
+    public function reviewAction () {
+        if (!empty($_POST)) {
+            if (!$this->model->createReview($_POST)) {
+                $this->view->message('error',$this->model->error);
+            }
+            $this->view->location('review');
+        }
+
+        $reviews=$this->model->getReviews();
+
+        $vars=[
+            'data'=>$reviews,
+        ];
+
+        $this->view->render('Отзывы',$vars);
+    }
+
 }
