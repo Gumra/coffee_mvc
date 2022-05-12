@@ -2,8 +2,6 @@
     namespace application\models;
     use application\core\Model;
     use application\services\Mail;
-    use application\services\Validation;
-
 
     class Main extends Model {
         public $error;

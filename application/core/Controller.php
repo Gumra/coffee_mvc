@@ -7,10 +7,13 @@
         public $route;
         public $view;
         public $acl;
+        public $url;
 
         /*public $model;*/
-        public function __construct($route) {
+        public function __construct($route,$url) {
             $this->route=$route;
+            $this->url=$url;
+
             if (!$this->checkAcl()) {
                 View::errorCode(403);
             }

@@ -32,12 +32,6 @@
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Поиск..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-                </div>
-            </form>
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
@@ -45,7 +39,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Главная</div>
-                            <a class="nav-link" href="default.php">
+                            <a class="nav-link" href="/">
                                 <div class="sb-nav-link-icon"><i class="fas fa-coffee"></i></div>
                                 Coffee House
                             </a>
@@ -57,9 +51,9 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">Напитки</a>
-                                    <a class="nav-link" href="#">Десерты</a>
-                                    <a class="nav-link" href="#">На заказ</a>
+                                    <a class="nav-link" href="/categories/drinks">Напитки</a>
+                                    <a class="nav-link" href="/categories/deserts">Десерты</a>
+                                    <a class="nav-link" href="/categories/torts">На заказ</a>
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Покупки</div>
@@ -76,13 +70,9 @@
                             </div>
 
                             <div class="sb-sidenav-menu-heading">Обратная связь</div>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/review">
                                 <div class="sb-nav-link-icon"><i class="fas fa-comment"></i></div>
                                 Отзывы
-                            </a>
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-question"></i></div>
-                                Вопросы
                             </a>
                         </div>
                     </div>
@@ -113,12 +103,11 @@
                         <hr class="dropdown-divider">
                         <?php endif;?>
                         <div class="justify-content-between d-flex">
-                            <div class="dropdown ">
+                            <div class="dropdown">
                                 <a href="#" class="align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownNavLink" data-bs-toggle="dropdown" aria-expanded="false">
                                     Меню
                                 </a>
                                 <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownNavLink" style="">
-                                    <li><a class="dropdown-item active" href="#" aria-current="page">Все категории</a></li>
                                     <li><a class="dropdown-item" href="#">Напитки</a></li>
                                     <li><a class="dropdown-item" href="#">Десерты</a></li>
                                     <li><a class="dropdown-item" href="#">На заказ</a></li>
@@ -127,11 +116,6 @@
                             <div>
                                 <a href="#" class="align-items-center link-dark text-decoration-none" id="dropdownNavLink" aria-expanded="false">
                                     О нас
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#" class="align-items-center link-dark text-decoration-none" id="dropdownNavLink" aria-expanded="false">
-                                    Лояльность
                                 </a>
                             </div>
                             <div>

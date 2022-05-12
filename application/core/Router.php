@@ -4,6 +4,7 @@
     class Router {
         protected $routes=[];
         protected $params=[];
+        protected $url;
 
         public function __construct() {
             $arrPath=require 'application/config/routes.php';
@@ -19,9 +20,10 @@
         }
 
         public function match() {
-            $url=trim($_SERVER['REQUEST_URI'],'/');
+            $this->url=trim($_SERVER['REQUEST_URI'],'/');
+
             foreach ($this->routes as $route=>$params) {
-                if (preg_match($route, $url, $matches)) {
+                if (preg_match($route, $this->url, $matches)) {
                     foreach ($matches as $key => $match) {
                         if (is_string($key)) {
                             if (is_numeric($match)) {
@@ -44,7 +46,7 @@
                 if (class_exists($path)) {
                     $action=$this->params['action'].'Action';
                     if (method_exists($path,$action)) {
-                        $controller=new $path($this->params);
+                        $controller=new $path($this->params,$this->url);
                         $controller->$action();
                     }
                     else {

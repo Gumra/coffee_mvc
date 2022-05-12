@@ -29,8 +29,32 @@
             'controller'=>'main',
             'action'=>'review'
         ],
+        //ProductController
+        'categories/drinks'=>[
+            'controller'=>'product',
+            'action'=>'show'
+        ],
+        'categories/drinks/{page:\d+}'=>[
+            'controller'=>'product',
+            'action'=>'show'
+        ],
+        'categories/deserts'=>[
+            'controller'=>'product',
+            'action'=>'show'
+        ],
+        'categories/deserts/{page:\d+}'=>[
+            'controller'=>'product',
+            'action'=>'show'
+        ],
+        'categories/torts'=>[
+            'controller'=>'product',
+            'action'=>'show'
+        ],
+        'categories/torts/{page:\d+}'=>[
+            'controller'=>'product',
+            'action'=>'show'
+        ],
         //AdminController
-        'admin/'
         /*'main/index/{page:\d+}' => [
             'controller'=>'main',
             'action'=>'index',
