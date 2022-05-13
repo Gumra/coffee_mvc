@@ -73,5 +73,9 @@ class MainController extends Controller {
         $this->view->render('Отзывы',$vars);
     }
 
+    public function infoAction() {
+        $this->view->render('О нас');
+    }
+
 
 }
