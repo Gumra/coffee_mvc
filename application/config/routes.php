@@ -29,6 +29,10 @@
             'controller'=>'main',
             'action'=>'review'
         ],
+        'info'=>[
+            'controller'=>'main',
+            'action'=>'info'
+        ],
         //ProductController
         'categories/drinks'=>[
             'controller'=>'product',

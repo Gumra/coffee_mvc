@@ -7,6 +7,7 @@
             'register',
             'forgot',
             'review',
+            'info'
         ],
         //Авторизированные пользователи имеют доступ
         'authorize' => [

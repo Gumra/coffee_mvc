@@ -101,7 +101,7 @@
                                 </ul>
                             </div>
                             <div>
-                                <a href="#" class="align-items-center link-dark text-decoration-none" id="dropdownNavLink" aria-expanded="false">
+                                <a href="/info" class="align-items-center link-dark text-decoration-none" id="dropdownNavLink" aria-expanded="false">
                                     О нас
                                 </a>
                             </div>
