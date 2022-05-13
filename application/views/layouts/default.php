@@ -56,19 +56,6 @@
                                     <a class="nav-link" href="/categories/torts">На заказ</a>
                                 </nav>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Покупки</div>
-                            <a class="nav-link collapsed" href="/" data-bs-toggle="collapse" data-bs-target="#orderLayouts" aria-expanded="true" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fab fa-jedi-order"></i></div>
-                                Заказы
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="orderLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">История</a>
-                                    <a class="nav-link" href="#">Корзина</a>
-                                </nav>
-                            </div>
-
                             <div class="sb-sidenav-menu-heading">Обратная связь</div>
                             <a class="nav-link" href="/review">
                                 <div class="sb-nav-link-icon"><i class="fas fa-comment"></i></div>
@@ -108,9 +95,9 @@
                                     Меню
                                 </a>
                                 <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownNavLink" style="">
-                                    <li><a class="dropdown-item" href="#">Напитки</a></li>
-                                    <li><a class="dropdown-item" href="#">Десерты</a></li>
-                                    <li><a class="dropdown-item" href="#">На заказ</a></li>
+                                    <li><a class="dropdown-item" href="/categories/drinks">Напитки</a></li>
+                                    <li><a class="dropdown-item" href="/categories/deserts">Десерты</a></li>
+                                    <li><a class="dropdown-item" href="/categories/torts">На заказ</a></li>
                                 </ul>
                             </div>
                             <div>
@@ -119,7 +106,7 @@
                                 </a>
                             </div>
                             <div>
-                                <a href="#" class="align-items-center link-dark text-decoration-none" id="dropdownNavLink" aria-expanded="false">
+                                <a href="/categories/torts" class="align-items-center link-dark text-decoration-none" id="dropdownNavLink" aria-expanded="false">
                                     На заказ
                                 </a>
                             </div>
@@ -139,7 +126,7 @@
                                 }
                             ?>
                             <div>
-                                <a href="<?=$params['url']?>" class="align-items-center link-dark text-decoration-none" id="dropdownNavLink" aria-expanded="false">
+                                <a href="/<?=$params['url']?>" class="align-items-center link-dark text-decoration-none" id="dropdownNavLink" aria-expanded="false">
                                     <?=$params['word']?>
                                 </a>
                             </div>
