@@ -58,6 +58,15 @@
             'controller'=>'product',
             'action'=>'show'
         ],
+        //UserController
+        'profile'=>[
+            'controller'=>'user',
+            'action'=>'profile'
+        ],
+        'settings'=>[
+            'controller'=>'user',
+            'action'=>'settings'
+        ],
         //AdminController
         /*'main/index/{page:\d+}' => [
             'controller'=>'main',

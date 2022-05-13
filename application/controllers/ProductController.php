@@ -18,8 +18,6 @@
 
             $vars=ShowPaginationData::showData($category, $this->model,$this->route);
 
-
-
             $this->view->render($title,$vars);
         }
     }

@@ -1,5 +1,20 @@
 <?php
     $currentUser=array_key_first($_SESSION);
+
+    $params=[];
+    $params['word']='Личный кабинет';
+    if (!$currentUser) {
+        $params['main']='login';
+        $params['word']='Войти';
+    }
+    elseif (strcmp($currentUser,'user')==0) {
+        $params['main']='profile';
+        $params['settings']='settings';
+    }
+    else {
+        $params['main']='admin/profile';
+        $params['settings']='admin/settings';
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,6 +58,20 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-coffee"></i></div>
                                 Coffee House
                             </a>
+                            <?php if ($currentUser):?>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseProfile" aria-expanded="false" aria-controls="collapseLayouts">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
+                                    Профиль
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapseProfile" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="/<?=$params['main']?>">Информация</a>
+                                        <a class="nav-link" href="/<?=$params['settings']?>">Настройки</a>
+                                    </nav>
+                                </div>
+                            <?php endif;?>
+
                             <div class="sb-sidenav-menu-heading">Товары</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -79,7 +108,7 @@
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><svg class="svg-inline--fa fa-user fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg><!-- <i class="fas fa-user fa-fw"></i> Font Awesome fontawesome.com --></a>
                                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                            <li><a class="dropdown-item" href="#!">Настройки</a></li>
+                                            <li><a class="dropdown-item" href="/<?=$params['settings']?>">Настройки</a></li>
                                             <li><hr class="dropdown-divider"></li>
                                             <li><a class="dropdown-item" href="/logout">Выход</a></li>
                                         </ul>
@@ -110,23 +139,8 @@
                                     На заказ
                                 </a>
                             </div>
-                            <?php
-                                $params=[];
-                                if (!$currentUser) {
-                                    $params['url']='login';
-                                    $params['word']='Войти';
-                                }
-                                elseif (strcmp($currentUser,'user')==0) {
-                                    $params['url']='main';
-                                    $params['word']='Личный кабинет';
-                                }
-                                else {
-                                    $params['url']='admin';
-                                    $params['word']='Личный кабинет';
-                                }
-                            ?>
                             <div>
-                                <a href="/<?=$params['url']?>" class="align-items-center link-dark text-decoration-none" id="dropdownNavLink" aria-expanded="false">
+                                <a href="/<?=$params['main']?>" class="align-items-center link-dark text-decoration-none" id="dropdownNavLink" aria-expanded="false">
                                     <?=$params['word']?>
                                 </a>
                             </div>
