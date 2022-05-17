@@ -1,24 +1,21 @@
 <?php
     namespace application\services;
 
+    use mysql_xdevapi\Table;
+
     class CheckChange {
-        public static function check($post,$user,$input) {
 
+        public static function check($post,$item,$input,$table) {
             $middle='';
-            $query='';
-
-            $returnQueryParams=[];
-
-            $params['id']=$user[0]['id'];
-
+            $params['id']=$item[0]['id'];
             foreach ($input as $val) {
-               if (strcmp($post[$val],$user[0][$val])!=0) {
+                if (strcmp($post[$val],$item[0][$val])!=0) {
                     $middle.="$val= :$val, ";
                     $params[$val]=htmlspecialchars($post[$val]);
                 }
             }
 
-            $beginSql="UPDATE profiles SET ";
+            $beginSql="UPDATE $table SET ";
             $endSql=" WHERE id= :id";
 
             if (!empty($middle)) {

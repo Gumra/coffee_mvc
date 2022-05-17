@@ -10,10 +10,7 @@ class MainController extends Controller {
     }
 
     public function loginAction() {
-        if (isset($_SESSION['admin'])) {
-            $this->view->redirect('admin');
-        }
-        elseif (isset($_SESSION['user'])) {
+        if (isset($_SESSION[array_key_first($_SESSION)])) {
             $this->view->redirect('/');
         }
 
@@ -21,7 +18,7 @@ class MainController extends Controller {
             if (!$this->model->validateLoginUser($_POST)) {
                 $this->view->message('error',$this->model->error);
             }
-            $this->view->location(array_key_first($_SESSION)=='user' ? '/' : 'admin');
+            $this->view->location('/');
         }
 
         $this->view->render('Вход');
@@ -34,7 +31,7 @@ class MainController extends Controller {
 
     public function registerAction() {
         if (isset($_SESSION[array_key_first($_SESSION)])) {
-            $this->view->redirect(array_key_first($_SESSION)=='user' ? '/' : 'admin');
+            $this->view->redirect('/');
         }
         if (!empty($_POST)) {
             if (!$this->model->validateRegister($_POST)) {

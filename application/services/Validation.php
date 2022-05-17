@@ -39,6 +39,18 @@
                     'pattern'=>'#^[0-9]{4}-[0-9]{2}-[0-9]{2}$#',
                     'message'=>'Некорректная дата рождения'
                 ],
+                'price' => [
+                    'pattern'=>'#^[\d]+$#',
+                    'message'=>'Некорректная цена'
+                ],
+                'name' => [
+                    'pattern'=>'#^[А-ЯЁ][а-яё]{3,}$#u',
+                    'message'=>'Некорректное название'
+                ],
+                'description' => [
+                    'pattern'=>'#^[\w+\.\,\-\s\"]+$#u',
+                    'message'=>'Некорректное описание'
+                ],
             ];
             if (in_array('email',$input)) {
                 $index=array_keys($input,'email');

@@ -8,6 +8,7 @@
         public $view;
         public $acl;
         public $url;
+        public $valController;
 
         /*public $model;*/
         public function __construct($route,$url) {
@@ -19,6 +20,7 @@
             }
             $this->view=new View($route);
             $this->model=$this->loadModel($route['controller']);
+            $this->valController=new Validation;
         }
 
         /***Загрузка модели по имени

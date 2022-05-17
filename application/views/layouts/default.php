@@ -43,7 +43,7 @@
 
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="default.php">Coffee House</a>
+            <a class="navbar-brand ps-3" href="/">Coffee House</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -59,7 +59,7 @@
                                 Coffee House
                             </a>
                             <?php if ($currentUser):?>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseProfile" aria-expanded="false" aria-controls="collapseLayouts">
+                                <a class="nav-link collapsed" href="" data-bs-toggle="collapse" data-bs-target="#collapseProfile" aria-expanded="false" aria-controls="collapseLayouts">
                                     <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
                                     Профиль
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -68,6 +68,10 @@
                                     <nav class="sb-sidenav-menu-nested nav">
                                         <a class="nav-link" href="/<?=$params['main']?>">Информация</a>
                                         <a class="nav-link" href="/<?=$params['settings']?>">Настройки</a>
+                                        <?php if (strcmp($currentUser,'admin')==0):?>
+                                            <a class="nav-link" href="/admin/add">Добавление товаров</a>
+                                            <a class="nav-link" href="/admin/users">Список пользователей</a>
+                                        <?php endif;?>
                                     </nav>
                                 </div>
                             <?php endif;?>

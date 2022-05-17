@@ -9,6 +9,10 @@
             <img src="data:image/jpeg;base64,<?=$im?>" align="left" width="200" height="200" hspace="10px" />
             <p><?=$val['description']?></p>
             <b>Цена: <?=$val['price']?></b>
+            <?php if (isset($_SESSION['admin'])):?>
+                <a class="link-danger" href="/admin/delete/<?=$category?>/<?=$val['id']?>">Удалить</a>
+                <a class="link-info" href="/admin/edit/<?=$category?>/<?=$val['id']?>">Редактировать</a>
+            <?php endif;?>
         </div>
     </div>
     <hr class="dropdown-divider">

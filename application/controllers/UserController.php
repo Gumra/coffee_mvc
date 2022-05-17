@@ -13,7 +13,7 @@
                     $this->view->message('error',$this->model->error);
                 }
                 else {
-                    $this->view->message('success','Успешная смена');
+                    $this->view->location('settings');
                 }
             }
             $this->view->render('Настройки');

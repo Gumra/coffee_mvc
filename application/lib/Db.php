@@ -16,13 +16,14 @@
                 foreach ($params as $key => $val) {
                     if (is_int($val)) {
                         $type = PDO::PARAM_INT;
-                    } else {
+                    } else
                         $type = PDO::PARAM_STR;
-                    }
                     $stmt->bindValue(':'.$key, $val, $type);
                 }
             }
-            $stmt->execute();
+            if (!$stmt->execute()) {
+                var_dump($stmt->errorInfo());
+            }
             return $stmt;
         }
 
@@ -40,5 +41,17 @@
         public function lastInsertId(): string
         {
             return $this->db->lastInsertId();
+        }
+        public function uploadImage($id,$sql,$file) {
+
+            $stmt=$this->db->prepare($sql);
+
+            $stmt->bindParam(':id', $id,PDO::PARAM_INT,3);
+            $stmt->bindParam(':image', $file, PDO::PARAM_LOB);
+
+            if (!$stmt->execute()) {
+                var_dump($stmt->errorInfo());
+            }
+            return $stmt;
         }
     }

@@ -4,7 +4,8 @@
         'all'=> [
             'index',
             'login',
-            'register'
+            'register',
+            'forgot'
         ],
         //Авторизированные пользователи имеют доступ
         'authorize' => [
@@ -12,5 +13,11 @@
         ],
         //Админ
         'admin' => [
+            'profiles',
+            'settings',
+            'edit',
+            'add',
+            'delete',
+            'crud'
         ],
     ];

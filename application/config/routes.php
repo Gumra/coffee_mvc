@@ -67,50 +67,25 @@
             'controller'=>'user',
             'action'=>'settings'
         ],
+        'admin/profile'=>[
+            'controller'=>'user',
+            'action'=>'profile'
+        ],
+        'admin/settings'=>[
+            'controller'=>'user',
+            'action'=>'settings'
+        ],
         //AdminController
-        /*'main/index/{page:\d+}' => [
-            'controller'=>'main',
-            'action'=>'index',
-            ],
-        'about' => [
-            'controller'=>'main',
-            'action'=>'about',
-            ],
-        'contact' => [
-            'controller'=>'main',
-            'action'=>'contact',
-            ],
-        'post/{id:\d+}' => [
-            'controller'=>'main',
-            'action'=>'post',
-            ],*/
-        //AdminController
-        /*'admin/login' => [
+        'admin/add'=>[
             'controller'=>'admin',
-            'action'=>'login',
+            'action'=>'crud',
         ],
-        'admin/logout' => [
+        'admin/edit/{category:\w+}/{id:\d+}'=>[
             'controller'=>'admin',
-            'action'=>'logout',
+            'action'=>'crud'
         ],
-        'admin/add' => [
-            'controller'=>'admin',
-            'action'=>'add',
+        'admin/delete/{category:\w+}/{id:\d+}'=>[
+            'controller'=>'product',
+            'action'=>'delete'
         ],
-        'admin/delete/{id:\d+}' => [
-            'controller'=>'admin',
-            'action'=>'delete',
-        ],
-        'admin/edit/{id:\d+}' => [
-            'controller'=>'admin',
-            'action'=>'edit',
-        ],
-        'admin/posts/{page:\d+}' => [
-            'controller'=>'admin',
-            'action'=>'posts',
-        ],
-        'admin/posts' => [
-            'controller'=>'admin',
-            'action'=>'posts',
-        ],*/
     ];
